@@ -1,6 +1,6 @@
-import graph
 from abc import ABC, abstractmethod
 from gw_utils import GW_OBS_TYPE_SINK, GW_BOUNDARY_TYPE_BOUNCY
+from tsys import GraphTS
 
 
 RESERVED_PROPERTIES = {"turn", "state", "action", "prob", "label"}
@@ -46,19 +46,6 @@ class Gridworld(ABC):
         raise NotImplementedError("label function is not implemented by the user.")
 
 
-class Graph(graph.Graph):
-    def __init__(self):
-        super(Graph, self).__init__()
-
-        # Additional class attributes
-        self.map_state2node = dict()
-        self.actions = None
-        self.atoms = None
-        self.deterministic = True
-        self.qualitative = True
-        self.turn_based = True
-
-
 def graphify(obj: Gridworld, state_properties=None, trans_properties=None):
     if state_properties is None:
         state_properties = dict()
@@ -67,10 +54,11 @@ def graphify(obj: Gridworld, state_properties=None, trans_properties=None):
         trans_properties = dict()
 
     # Clear graph.
-    graph = Graph()
+    graph = GraphTS()
     graph.map_state2node = dict()
 
-    # Update options
+    # Update options / obj-level properties.
+    graph.dim = obj.dim
     graph.turn_based = obj.turn_based
     graph.deterministic = obj.deterministic
     graph.qualitative = obj.qualitative

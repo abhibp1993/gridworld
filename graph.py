@@ -22,7 +22,7 @@ class Graph:
         self._e_props = dict()
 
     def __repr__(self):
-        return f"<EsrGraph with |V|={self.number_of_nodes()}, |E|={self.number_of_edges()}>"
+        return f"<Graph with |V|={self.number_of_nodes()}, |E|={self.number_of_edges()}>"
 
     def __len__(self):
         return self.size()
