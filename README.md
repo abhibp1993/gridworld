@@ -12,6 +12,7 @@ Following three types of gridworld can be generated with the same API.
 
 ## How to use?
 
+### 1. Define gridworld 
 A gridworld is defined by extending the class `Gridworld`. The user must implement the following methods:
 * `states()`: The set of states. 
 * `actions()`: The set of actions. 
@@ -24,6 +25,12 @@ The following methods are optional.
 * `atoms()`: returns a set of atomic propositions. 
 * `label(state)`: returns a set of atomic propositions true in given state. 
 
+
+> Note: Standard actions such as NESW, bouncy-boundary, obstacles etc. utilities 
+> are implemented in `gw_utils.py`.  
+
+
+### Construct gridworld graph
 A gridworld graph is constructed as follows:
 ```python
 # Create an instance of extended class (say MyGridworld). 
