@@ -1,2 +1,9 @@
-# gridworld
-Gridworld as Graph Transition System 
+- User launches simulator app (sim.py)
+  - Simulator launches a gridworld window showing a gridworld and an automaton image.
+- User may select the rendering style of gridworld: backcolor, back-image, grid-style etc.
+- User may view, select or modify the strategy used for players (file load). 
+  - Changing strategy after starting the game will resets it. 
+- User selects the initial state from drop-down list. The game is initialized only after `Initialize` button is clicked.
+- After initialization, the user must click START to start the game.
+- User may play or pause the game using Play/Pause button.
+- User may adjust frequency of the state update loop.
